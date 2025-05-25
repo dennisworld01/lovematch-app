@@ -1,39 +1,37 @@
-document.getElementById("quizForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+<script>
+  document.getElementById("lovematch-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const q1 = document.getElementById("question1").value;
-  const q2 = document.getElementById("question2").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const q1 = document.querySelector('input[name="q1"]:checked')?.value || "";
+    const q2 = document.querySelector('input[name="q2"]:checked')?.value || "";
 
-  if (name && email) {
-    const formData = {
+    const payload = {
       name,
       email,
       q1,
       q2
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbxwE1JSMPUSJ-trW-8kOeKvT5cH5Ncoay-UsB57vBZ-lcNwDSz_lWHd0C-_t03STCsF/exec", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-    .then(res => res.text())
-    .then(() => {
-      document.getElementById("quizForm").classList.add("hidden");
-      document.getElementById("result").classList.remove("hidden");
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbxKVLr4fjxcT3rKnnd8mGckETCr-nD2W4U-o8u34ojYweZcyNJMI89bMSmySg7yJWXE/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload)
+      });
 
-      // Redirect to your dating CPL offer
-      setTimeout(() => {
-        window.location.href = "https://youtube.com/@crownsport24?si=19M6Y5j62ODR5xFc"; // Replace with actual affiliate link
-      }, 3000);
-    })
-    .catch(err => {
-      alert("Submission failed. Please try again.");
-      console.error(err);
-    });
-  }
-});
+      const result = await response.text();
+
+      if (result.includes("Success")) {
+        alert("Submission successful! Check your email soon.");
+      } else {
+        alert("Submission failed: " + result);
+      }
+    } catch (error) {
+      alert("Error: " + error.message);
+    }
+  });
+</script>
