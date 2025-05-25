@@ -1,30 +1,47 @@
-document.getElementById("lovematch-form").addEventListener("submit", async function (e) {
-  e.preventDefault();
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  padding: 20px;
+  text-align: center;
+}
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const q1 = document.querySelector('input[name="q1"]:checked')?.value || "";
-  const q2 = document.querySelector('input[name="q2"]:checked')?.value || "";
+h1 {
+  color: #d10068;
+}
 
-  const payload = { name, email, q1, q2 };
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  display: inline-block;
+  text-align: left;
+  max-width: 400px;
+  width: 100%;
+}
 
-  try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbxKVLr4fjxcT3rKnnd8mGckETCr-nD2W4U-o8u34ojYweZcyNJMI89bMSmySg7yJWXE/exec", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload)
-    });
+label {
+  display: block;
+  margin: 10px 0;
+}
 
-    const result = await response.text();
+input[type="text"], input[type="email"] {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
 
-    if (result.includes("Success")) {
-      window.location.href = "https://youtube.com/@crownsport24?si=pnxycXF0vYghzzZe";
-    } else {
-      alert("Submission failed: " + result);
-    }
-  } catch (error) {
-    alert("Error: " + error.message);
-  }
-});
+button {
+  background: #d10068;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #a80050;
+}
