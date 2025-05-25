@@ -1,5 +1,4 @@
-<script>
-  document.getElementById("lovematch-form").addEventListener("submit", async function (e) {
+document.getElementById("lovematch-form").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const name = document.getElementById("name").value;
@@ -34,4 +33,3 @@
       alert("Error: " + error.message);
     }
   });
-</script>
