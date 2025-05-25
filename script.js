@@ -6,12 +6,7 @@ document.getElementById("lovematch-form").addEventListener("submit", async funct
   const q1 = document.querySelector('input[name="q1"]:checked')?.value || "";
   const q2 = document.querySelector('input[name="q2"]:checked')?.value || "";
 
-  const payload = {
-    name,
-    email,
-    q1,
-    q2
-  };
+  const payload = { name, email, q1, q2 };
 
   try {
     const response = await fetch("https://script.google.com/macros/s/AKfycbxKVLr4fjxcT3rKnnd8mGckETCr-nD2W4U-o8u34ojYweZcyNJMI89bMSmySg7yJWXE/exec", {
@@ -25,7 +20,7 @@ document.getElementById("lovematch-form").addEventListener("submit", async funct
     const result = await response.text();
 
     if (result.includes("Success")) {
-      alert("Submission successful! Check your email soon.");
+      window.location.href = "https://youtube.com/@crownsport24?si=pnxycXF0vYghzzZe";
     } else {
       alert("Submission failed: " + result);
     }
