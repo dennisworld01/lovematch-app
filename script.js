@@ -14,7 +14,7 @@ document.getElementById("quizForm").addEventListener("submit", function(e) {
       q2
     };
 
-    fetch("https://script.google.com/macros/s/AKfycbw0nxnQ-Oo5CcA3bv1F0nJhLp6OCoXPZSqb9HJrRZgtLBsxdKaRxz-lKUPNULrkgs5C/exec", {
+    fetch("https://script.google.com/macros/s/AKfycbxwE1JSMPUSJ-trW-8kOeKvT5cH5Ncoay-UsB57vBZ-lcNwDSz_lWHd0C-_t03STCsF/exec", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
@@ -26,9 +26,9 @@ document.getElementById("quizForm").addEventListener("submit", function(e) {
       document.getElementById("quizForm").classList.add("hidden");
       document.getElementById("result").classList.remove("hidden");
 
-      // Redirect to your affiliate offer after 3 seconds
+      // Redirect to your dating CPL offer
       setTimeout(() => {
-        window.location.href = "https://youtube.com/@crownsport24?si=NyPSyNloUMbmNpxX"; // Replace with real CPL URL
+        window.location.href = "https://youtube.com/@crownsport24?si=19M6Y5j62ODR5xFc"; // Replace with actual affiliate link
       }, 3000);
     })
     .catch(err => {
