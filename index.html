@@ -4,39 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>LoveMatch Quiz</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Find Your LoveMatch</h1>
-    <p>Answer a few romantic questions and get matched!</p>
+  <h1>Find Your LoveMatch</h1>
+  <form id="lovematch-form">
+    <label>
+      Name:
+      <input type="text" id="name" name="name" required />
+    </label>
+    <label>
+      Email:
+      <input type="email" id="email" name="email" required />
+    </label>
 
-    <form id="quizForm">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="email" id="email" placeholder="Your Email" required />
+    <p>Do you believe in love at first sight?</p>
+    <label><input type="radio" name="q1" value="Yes" required> Yes</label>
+    <label><input type="radio" name="q1" value="No"> No</label>
 
-      <label>What's your ideal first date?</label>
-      <select id="question1">
-        <option>Dinner under the stars</option>
-        <option>Movie night</option>
-        <option>Adventure trip</option>
-      </select>
+    <p>What's your ideal date type?</p>
+    <label><input type="radio" name="q2" value="Romantic" required> Romantic</label>
+    <label><input type="radio" name="q2" value="Funny"> Funny</label>
 
-      <label>What type of partner are you seeking?</label>
-      <select id="question2">
-        <option>Romantic</option>
-        <option>Funny</option>
-        <option>Ambitious</option>
-      </select>
-
-      <button type="submit">See Your Match</button>
-    </form>
-
-    <div id="result" class="hidden">
-      <h2>Your match is waiting!</h2>
-      <p>Check your email for your perfect match link!</p>
-    </div>
-  </div>
+    <br/><br/>
+    <button type="submit">See Your Match</button>
+  </form>
 
   <script src="script.js"></script>
 </body>
