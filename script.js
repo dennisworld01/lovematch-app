@@ -1,47 +1,26 @@
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #ff9a9e, #fad0c4);
-  padding: 20px;
-  text-align: center;
-}
+document.getElementById("loveForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
 
-h1 {
-  color: #d10068;
-}
+  const form = e.target;
+  const data = new FormData(form);
+  const statusMessage = document.getElementById("statusMessage");
 
-form {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  display: inline-block;
-  text-align: left;
-  max-width: 400px;
-  width: 100%;
-}
+  try {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzKEXS00M503sHDysvEk_2bfw_m6Qm2YVs5NkkQsjO8PTmJhwuGd0t5aaVgLS7g-AGX/exec", {
+      method: "POST",
+      body: data
+    });
 
-label {
-  display: block;
-  margin: 10px 0;
-}
-
-input[type="text"], input[type="email"] {
-  width: 100%;
-  padding: 8px;
-  margin: 6px 0 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
-
-button {
-  background: #d10068;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button:hover {
-  background: #a80050;
-}
+    if (response.ok) {
+      statusMessage.textContent = "Match found! Redirecting...";
+      setTimeout(() => {
+        window.location.href = "https://youtube.com/@crownsport24?si=pnxycXF0vYghzzZe";
+      }, 1500);
+    } else {
+      statusMessage.textContent = "Submission failed. Please try again.";
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    statusMessage.textContent = "An error occurred.";
+  }
+});
